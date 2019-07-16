@@ -1,0 +1,42 @@
+{
+    "question": "Favourite programming language?",
+    "published_at": "2015-05-27T21:22:26.431000+00:00",
+    "url": "/questions/1",
+    "choices": [
+      {
+        "choice": "Swift",
+        "votes": 736,
+        "url": "/questions/1/choices/1"
+      },
+      {
+        "choice": "JavaScript",
+        "votes": 324,
+        "url": "/questions/1/choices/7"
+      },
+      {
+        "choice": "C",
+        "votes": 152,
+        "url": "/questions/1/choices/5"
+      },
+      {
+        "choice": "Ruby",
+        "votes": 144,
+        "url": "/questions/1/choices/4"
+      },
+      {
+        "choice": "Python",
+        "votes": 111,
+        "url": "/questions/1/choices/2"
+      },
+      {
+        "choice": "Objective-C",
+        "votes": 85,
+        "url": "/questions/1/choices/3"
+      },
+      {
+        "choice": "C++",
+        "votes": 82,
+        "url": "/questions/1/choices/6"
+      }
+    ]
+  }

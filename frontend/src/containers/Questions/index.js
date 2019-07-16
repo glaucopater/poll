@@ -2,21 +2,25 @@ import React, { Fragment } from 'react';
 import axios from 'axios';
 import Choices from '../../components/Choices';
 import EmptyResults from '../../components/EmptyResults';
-
 import Moment from 'react-moment';
+import { fetchQuestions } from './actions';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+//import store from '../../utils/configureStore';
 
-export default class Questions extends React.Component {
+class Questions extends React.Component {
   constructor(props) {
     super(props);
     this.state = { questions: [] };
   }
 
-  async fetchData() {
+  //post a vote and refetch
+  async sendVote(choice) {
     axios
-      .get(`/questions`, { crossDomain: true })
+      .post(choice.url, {})
       .then(res => {
         if (res.data) {
-          console.log(res.data);
+          console.log(res.data, this);
           this.setState({ questions: res.data });
         }
       })
@@ -26,7 +30,7 @@ export default class Questions extends React.Component {
   }
 
   async update() {
-    await this.fetchData();
+    this.props.fetchQuestions();
   }
 
   componentDidMount() {
@@ -34,7 +38,11 @@ export default class Questions extends React.Component {
   }
 
   render() {
-    const questions = this.state.questions;
+    console.log(this.props);
+    const questions =
+      this.props.questions && this.props.questions.data
+        ? this.props.questions.data
+        : [];
     return (
       <div className="Questions">
         {questions.length === 0 && <EmptyResults />}
@@ -45,10 +53,27 @@ export default class Questions extends React.Component {
               <Moment>{q.published_at}</Moment>
             </span>
             <span className="Url">{q.url}</span>
-            <Choices {...q.choices} />
+            <Choices
+              {...q.choices}
+              sendVote={this.sendVote}
+              update={this.update}
+            />
           </Fragment>
         ))}
       </div>
     );
   }
 }
+
+export default connect(
+  ({ fetchQuestions: questions }) => ({
+    questions,
+  }),
+  dispatch =>
+    bindActionCreators(
+      {
+        fetchQuestions,
+      },
+      dispatch,
+    ),
+)(Questions);

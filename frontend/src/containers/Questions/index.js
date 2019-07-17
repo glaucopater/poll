@@ -25,10 +25,6 @@ class Questions extends React.PureComponent {
     this.update();
   }
 
-  UNSAFE_componentWillReceiveProps(nexProps) {
-    console.log('Questions', nexProps, this.props);
-  }
-
   render() {
     const questions =
       this.props.questions && this.props.questions.data
@@ -36,8 +32,6 @@ class Questions extends React.PureComponent {
         : [];
 
     const { voteQuestion, data } = this.props;
-
-    console.log('Questions', this.props);
 
     return (
       <div className="Questions">

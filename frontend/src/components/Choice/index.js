@@ -3,7 +3,13 @@ import PropTypes from 'prop-types';
 import Strings from '../../constants/strings';
 
 export default class Question extends PureComponent {
-  static propTypes = {};
+  static propTypes = {
+    choice: PropTypes.string.isRequired,
+    votes: PropTypes.number.isRequired,
+    url: PropTypes.string.isRequired,
+    voteQuestion: PropTypes.func.isRequired,
+    data: PropTypes.object,
+  };
 
   constructor(props) {
     super(props);
@@ -22,7 +28,7 @@ export default class Question extends PureComponent {
     const lastChoice = data.data && data.data.url === p.url ? data.data : p;
 
     return (
-      <div>
+      <div className="Question">
         <span className="Choice">{lastChoice.choice}</span>
         <span className="Votes">
           {Strings.votes} {lastChoice.votes}

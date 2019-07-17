@@ -33,9 +33,6 @@ export default class Question extends PureComponent {
       voteQuestion,
       data,
     } = this.props;
-    if (data) {
-      console.log(choices, data);
-    }
 
     return (
       <Fragment key={index}>

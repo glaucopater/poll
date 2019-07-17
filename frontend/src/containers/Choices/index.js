@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import Choice from '../Choice/';
+import Choice from '../../components/Choice/';
 export default class Choices extends PureComponent {
   constructor(props) {
     super(props);

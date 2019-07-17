@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import Choices from '../../components/Choices';
+import Choices from '../../containers/Choices';
 import Strings from '../../constants/strings';
 import Moment from 'react-moment';
 

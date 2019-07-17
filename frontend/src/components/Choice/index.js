@@ -25,7 +25,8 @@ export default class Question extends PureComponent {
     //to be refactored
     const { data } = this.props;
     const p = this.props;
-    const lastChoice = data.data && data.data.url === p.url ? data.data : p;
+    const lastChoice =
+      data && data.data && data.data.url === p.url ? data.data : p;
 
     return (
       <div className="Question">

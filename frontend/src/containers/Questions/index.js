@@ -8,9 +8,9 @@ import { bindActionCreators } from 'redux';
 
 class Questions extends React.PureComponent {
   static propTypes = {
-    questions: PropTypes.object.isRequired,
-    fetchQuestions: PropTypes.func.isRequired,
-    voteQuestion: PropTypes.func.isRequired,
+    questions: PropTypes.object,
+    fetchQuestions: PropTypes.func,
+    voteQuestion: PropTypes.func,
   };
   constructor(props) {
     super(props);

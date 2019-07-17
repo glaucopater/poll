@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import Strings from '../../constants/strings';
-
+import Choice from '../Choice/';
 export default class Choices extends PureComponent {
   constructor(props) {
     super(props);
@@ -10,24 +10,14 @@ export default class Choices extends PureComponent {
     this.setState({ choices: this.props.choices });
   }
 
-  handleClick(p, e) {
-    this.props.voteQuestion(p);
-  }
   render() {
     const choices = this.state.choices;
-    console.log('Choices', this.props);
+    console.log('Choices render', this.props);
+    const { data, voteQuestion } = this.props;
     return (
       <div className="Choices">
         {Object.values(choices).map((p, index) => (
-          <div key={index}>
-            <span className="Choice">{p.choice}</span>
-            <span className="Votes">
-              {Strings.votes} {p.votes}
-            </span>
-            <button className="Url" onClick={e => this.handleClick(p, e)}>
-              {Strings.vote}
-            </button>
-          </div>
+          <Choice key={index} {...p} data={data} voteQuestion={voteQuestion} />
         ))}
       </div>
     );

@@ -5,7 +5,6 @@ import EmptyResults from '../../components/EmptyResults';
 import { fetchQuestions, voteQuestion } from './actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Strings from '../../constants/strings';
 
 class Questions extends React.PureComponent {
   static propTypes = {
@@ -26,19 +25,30 @@ class Questions extends React.PureComponent {
     this.update();
   }
 
+  UNSAFE_componentWillReceiveProps(nexProps) {
+    console.log('Questions', nexProps, this.props);
+  }
+
   render() {
     const questions =
       this.props.questions && this.props.questions.data
         ? this.props.questions.data
         : [];
 
-    const { voteQuestion } = this.props;
+    const { voteQuestion, data } = this.props;
+
+    console.log('Questions', this.props);
 
     return (
       <div className="Questions">
         {questions.length === 0 && <EmptyResults />}
         {questions.map((q, index) => (
-          <Question key={index} {...q} voteQuestion={voteQuestion} />
+          <Question
+            key={index}
+            {...q}
+            voteQuestion={voteQuestion}
+            data={data}
+          />
         ))}
       </div>
     );
@@ -46,8 +56,9 @@ class Questions extends React.PureComponent {
 }
 
 export default connect(
-  ({ fetchQuestions: questions }) => ({
+  ({ fetchQuestions: questions, voteQuestion: data }) => ({
     questions,
+    data,
   }),
   dispatch =>
     bindActionCreators(

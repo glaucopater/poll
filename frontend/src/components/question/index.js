@@ -12,6 +12,7 @@ export default class Question extends PureComponent {
     url: PropTypes.string.isRequired,
     choices: PropTypes.array.isRequired,
     voteQuestion: PropTypes.func.isRequired,
+    data: PropTypes.object,
   };
 
   constructor(props) {
@@ -30,7 +31,12 @@ export default class Question extends PureComponent {
       url,
       choices,
       voteQuestion,
+      data,
     } = this.props;
+    if (data) {
+      console.log(choices, data);
+    }
+
     return (
       <Fragment key={index}>
         <span className="Question">{question}</span>
@@ -41,7 +47,7 @@ export default class Question extends PureComponent {
         <span className="Url">
           <a href={url}>{Strings.details}</a>
         </span>
-        <Choices choices={choices} voteQuestion={voteQuestion} />
+        <Choices choices={choices} voteQuestion={voteQuestion} data={data} />
       </Fragment>
     );
   }

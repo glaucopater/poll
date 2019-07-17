@@ -5,7 +5,7 @@ import Strings from './constants/strings';
 
 const App = props => (
   <div className="App">
-    <h1>{Strings.Questions}</h1>
+    <h1>{Strings.questions}</h1>
     <Questions {...props} />
   </div>
 );

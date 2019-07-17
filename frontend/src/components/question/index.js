@@ -1,9 +1,19 @@
-import React, { Fragment, Component } from 'react';
+import React, { PureComponent, Fragment } from 'react';
+import PropTypes from 'prop-types';
 import Choices from '../../components/Choices';
 import Strings from '../../constants/strings';
 import Moment from 'react-moment';
 
-export default class Question extends Component {
+export default class Question extends PureComponent {
+  static propTypes = {
+    index: PropTypes.number,
+    question: PropTypes.string.isRequired,
+    published_at: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    choices: PropTypes.array.isRequired,
+    voteQuestion: PropTypes.func.isRequired,
+  };
+
   constructor(props) {
     super(props);
     this.state = { choices: [] };
@@ -31,11 +41,7 @@ export default class Question extends Component {
         <span className="Url">
           <a href={url}>{Strings.details}</a>
         </span>
-        <Choices
-          choices={choices}
-          voteQuestion={voteQuestion}
-          update={this.update}
-        />
+        <Choices choices={choices} voteQuestion={voteQuestion} />
       </Fragment>
     );
   }

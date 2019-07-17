@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import Strings from '../../constants/strings';
 
-const style = {
-  borderWidth: 1,
-  borderColor: '#000',
-};
-export default class Choices extends Component {
+export default class Choices extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { choices: [] };
-    // this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
     this.setState({ choices: this.props.choices });
@@ -19,14 +15,17 @@ export default class Choices extends Component {
   }
   render() {
     const choices = this.state.choices;
+    console.log('Choices', this.props);
     return (
-      <div className="Choices" style={style}>
+      <div className="Choices">
         {Object.values(choices).map((p, index) => (
           <div key={index}>
             <span className="Choice">{p.choice}</span>
-            <span className="Votes">Votes: {p.votes}</span>
+            <span className="Votes">
+              {Strings.votes} {p.votes}
+            </span>
             <button className="Url" onClick={e => this.handleClick(p, e)}>
-              Vote
+              {Strings.vote}
             </button>
           </div>
         ))}

@@ -1,8 +1,12 @@
 import React from 'react';
 import './App.css';
 import Questions from './containers/Questions';
+import Strings from './constants/strings';
 
-const App = props => {
-  return <Questions {...props} />;
-};
+const App = props => (
+  <div className="App">
+    <h1>{Strings.Questions}</h1>
+    <Questions {...props} />
+  </div>
+);
 export default App;

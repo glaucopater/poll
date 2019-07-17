@@ -14,3 +14,15 @@ export function fetchQuestionsReducer(state = initState, action) {
       return state;
   }
 }
+
+export function voteQuestionReducer(state = initState, action) {
+  switch (action.type) {
+    case actionTypes.VOTE_LOADED: {
+      return {
+        data: action.data,
+      };
+    }
+    default:
+      return state;
+  }
+}

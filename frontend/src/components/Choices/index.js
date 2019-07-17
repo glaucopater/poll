@@ -11,29 +11,23 @@ export default class Choices extends Component {
     // this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
-    console.log(this.props);
-    this.setState({ choices: this.props });
+    this.setState({ choices: this.props.choices });
   }
 
   handleClick(p, e) {
-    console.log('vote', p, e);
-    this.props.sendVote(p);
-    /*
-    console.log(res);
-    const choices = Object.values(this.state.choices)
-      .filter(c => c.choice !== p.choice)
-      .concat(res);
-    this.setState(choices);*/
+    this.props.voteQuestion(p);
   }
   render() {
     const choices = this.state.choices;
     return (
       <div className="Choices" style={style}>
         {Object.values(choices).map((p, index) => (
-          <div key={index} onClick={e => this.handleClick(p, e)}>
+          <div key={index}>
             <span className="Choice">{p.choice}</span>
-            <span className="Votes">{p.votes}</span>
-            <span className="Url">{p.url}</span>
+            <span className="Votes">Votes: {p.votes}</span>
+            <button className="Url" onClick={e => this.handleClick(p, e)}>
+              Vote
+            </button>
           </div>
         ))}
       </div>

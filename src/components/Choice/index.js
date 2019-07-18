@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Strings from '../../constants/strings';
+import { StyledVoteContainer } from './styled';
 
 export default class Question extends PureComponent {
   static propTypes = {
@@ -22,7 +23,6 @@ export default class Question extends PureComponent {
     this.props.voteQuestion(p);
   }
   render() {
-    //to be refactored
     const { data } = this.props;
     const p = this.props;
     const lastChoice =
@@ -31,12 +31,14 @@ export default class Question extends PureComponent {
     return (
       <li className="Choice">
         <p className="ChoiceContent">{lastChoice.choice}</p>
-        <p className="Votes">
-          {Strings.votes} {lastChoice.votes}
-        </p>
-        <button className="Url" onClick={e => this.handleClick(p, e)}>
-          {Strings.vote}
-        </button>
+        <StyledVoteContainer>
+          <p className="Votes">
+            {Strings.votes} {lastChoice.votes}
+          </p>
+          <button className="Url" onClick={e => this.handleClick(p, e)}>
+            {Strings.vote}
+          </button>
+        </StyledVoteContainer>
       </li>
     );
   }

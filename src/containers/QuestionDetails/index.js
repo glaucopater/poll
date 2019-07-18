@@ -2,7 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Choice from '../../components/Choice/';
 import EmtpyResults from '../../components/EmptyResults/';
-import { StyledQuestionDetails, StyledChoices } from './styled';
+import Loading from '../../components/Loading/';
+import { StyledHeader, StyledQuestionDetails, StyledChoices } from './styled';
 import { fetchQuestionDetails, voteQuestion } from './actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -32,15 +33,20 @@ class QuestionDetails extends PureComponent {
   render() {
     const { voteQuestion, questionDetails, data } = this.props;
 
-    if (questionDetails.data) {
-      const { choices, question } = questionDetails.data;
+    if (!questionDetails.data) {
+      return <Loading />;
+    }
 
+    if (questionDetails.data && questionDetails.data.length !== 0) {
+      const { choices, question } = questionDetails.data;
       return (
         <StyledQuestionDetails>
-          <h1>{question}</h1>
-          <h3>
-            <a href="/">{Strings.back}</a>
-          </h3>
+          <StyledHeader>
+            <h1>{question}</h1>
+            <span>
+              <a href="/">{Strings.back}</a>
+            </span>
+          </StyledHeader>
           <StyledChoices className="Choices">
             {Object.values(choices).map((p, index) => (
               <Choice

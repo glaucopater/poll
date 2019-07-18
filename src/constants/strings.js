@@ -1,7 +1,7 @@
 export default {
   questions: 'Questions',
   vote: 'Vote!',
-  votes: 'Votes',
+  votes: 'Votes:',
   publishedAt: 'Published',
   details: 'Details',
   back: 'Back',

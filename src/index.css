@@ -43,7 +43,7 @@ a {
   text-align: center;
   display: inline-block;
   transition: all .3s;
-  padding: 5px;
+  padding: 0.5rem;
 }
 
 a:hover {

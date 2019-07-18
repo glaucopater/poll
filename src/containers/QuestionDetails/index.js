@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Choice from '../../components/Choice/';
 import EmtpyResults from '../../components/EmptyResults/';
-import './index.css';
+import { StyledQuestionDetails, StyledChoices } from './styled';
 import { fetchQuestionDetails, voteQuestion } from './actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -36,12 +36,12 @@ class QuestionDetails extends PureComponent {
       const { choices, question } = questionDetails.data;
 
       return (
-        <div className="QuestionDetails">
+        <StyledQuestionDetails>
           <h1>{question}</h1>
           <h3>
             <a href="/">{Strings.back}</a>
           </h3>
-          <ul className="Choices">
+          <StyledChoices className="Choices">
             {Object.values(choices).map((p, index) => (
               <Choice
                 key={index}
@@ -50,8 +50,8 @@ class QuestionDetails extends PureComponent {
                 data={data}
               />
             ))}
-          </ul>
-        </div>
+          </StyledChoices>
+        </StyledQuestionDetails>
       );
     } else return <EmtpyResults />;
   }

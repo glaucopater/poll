@@ -1,6 +1,6 @@
 import React from 'react';
-import './index.css';
+import { StyledLoading } from './styled';
 const Loading = () => {
-  return <div className="Loading">{'Loading ...'}</div>;
+  return <StyledLoading className="Loading">{'Loading ...'}</StyledLoading>;
 };
 export default Loading;

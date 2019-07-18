@@ -1,6 +1,10 @@
 import React from 'react';
-import './index.css';
+import { StyledEmptyResults } from './styled';
 const EmptyResults = () => {
-  return <div className="EmptyResults">{'No results'}</div>;
+  return (
+    <StyledEmptyResults className="EmptyResults">
+      {'No results'}
+    </StyledEmptyResults>
+  );
 };
 export default EmptyResults;

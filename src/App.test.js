@@ -10,7 +10,7 @@ const store = mockStore({ questions: [] });
 it('renders without crashing', () => {
   const div = document.createElement('div');
   const props = {
-    questions: [],
+    questions: { data: [] },
     voteQuestion: jest.fn(),
     fetchQuestions: jest.fn(),
   };

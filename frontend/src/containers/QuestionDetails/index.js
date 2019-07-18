@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Choice from '../../components/Choice/';
 import EmtpyResults from '../../components/EmptyResults/';
@@ -6,6 +6,7 @@ import './index.css';
 import { fetchQuestionDetails, voteQuestion } from './actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Strings from '../../constants/strings';
 
 class QuestionDetails extends PureComponent {
   static propTypes = {
@@ -32,13 +33,15 @@ class QuestionDetails extends PureComponent {
     const { voteQuestion, questionDetails, data } = this.props;
 
     if (questionDetails.data) {
-      const { choices, published_at, question } = questionDetails.data;
+      const { choices, question } = questionDetails.data;
 
       return (
-        <Fragment>
+        <div className="QuestionDetails">
           <h1>{question}</h1>
-          <h2>{published_at}</h2>
-          <div className="Choices">
+          <h3>
+            <a href="/">{Strings.back}</a>
+          </h3>
+          <ul className="Choices">
             {Object.values(choices).map((p, index) => (
               <Choice
                 key={index}
@@ -47,8 +50,8 @@ class QuestionDetails extends PureComponent {
                 data={data}
               />
             ))}
-          </div>
-        </Fragment>
+          </ul>
+        </div>
       );
     } else return <EmtpyResults />;
   }

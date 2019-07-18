@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Moment from 'react-moment';
-
+import Strings from '../../constants/strings';
 export default class Question extends PureComponent {
   static propTypes = {
     question: PropTypes.string.isRequired,
@@ -20,17 +19,13 @@ export default class Question extends PureComponent {
   }
 
   render() {
-    const { question, published_at, url } = this.props;
+    const { question, url } = this.props;
 
     return (
-      <div className="Question">
-        <div className="Url">
-          <a href={url}>{question}</a>
-        </div>
-        <div className="Published_at">
-          <Moment>{published_at}</Moment>
-        </div>
-      </div>
+      <li className="Question">
+        <p>{question}</p>
+        <a href={url}>{Strings.vote}</a>
+      </li>
     );
   }
 }

@@ -4,4 +4,5 @@ export default {
   votes: 'Votes',
   publishedAt: 'Published',
   details: 'Details',
+  back: 'Back',
 };

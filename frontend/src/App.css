@@ -1,34 +1,37 @@
-div {
-  border: 1px solid black;
-  padding: 6px;
-  min-width: 10px;
-  min-height: 10px;
-  margin: 12px;
-  box-shadow: 3px 3px 3px 3px #00000030;
-  display: flex;
-  align-content: center;
-  flex-direction: column;
-}
+ /* Typography imported from Google Fonts */
+ @import url('https://fonts.googleapis.com/css?family=Playfair+Display|Source+Sans+Pro:200,400');
 
-.Question {
-  flex-direction: row;
-  display: flex;
-}
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+   font-family: 'Playfair Display', serif;
+   margin: 2rem;
+ }
 
-span {
-  border: 1px solid green;
-  padding: 6px;
-  min-width: 10px;
-  min-height: 10px;
-  margin: 12px;
-  box-shadow: 3px 3px 3px 3px #00000030;
-}
+ p,
+ a {
+   font-family: 'Source Sans Pro', sans-serif;
+ }
 
-button {
-  border: 1px solid green;
-  padding: 6px;
-  min-width: 10px;
-  min-height: 10px;
-  margin: 12px;
-  box-shadow: 3px 3px 3px 3px #00000030;
-}
+ /* Generic styles */
+ html {
+   scroll-behavior: smooth;
+ }
+
+ a {
+   background-color: goldenrod;
+   text-decoration: none;
+   color: white;
+   border-radius: .25rem;
+   text-align: center;
+   display: inline-block;
+   transition: all .3s;
+   padding: 5px;
+ }
+
+ a:hover {
+   opacity: .6;
+ }

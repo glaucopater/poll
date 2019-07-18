@@ -6,6 +6,7 @@ import { fetchQuestions } from './actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Strings from '../../constants/strings';
+import './index.css';
 class Questions extends React.PureComponent {
   static propTypes = {
     questions: PropTypes.object,
@@ -34,9 +35,11 @@ class Questions extends React.PureComponent {
       <div className="Questions">
         {questions.length === 0 && <EmptyResults />}
         {questions.length > 0 && <h1>{Strings.questions}</h1>}
-        {questions.map((q, index) => (
-          <Question key={index} {...q} />
-        ))}
+        <ul>
+          {questions.map((q, index) => (
+            <Question key={index} {...q} />
+          ))}
+        </ul>
       </div>
     );
   }

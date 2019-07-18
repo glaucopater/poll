@@ -29,15 +29,15 @@ export default class Question extends PureComponent {
       data && data.data && data.data.url === p.url ? data.data : p;
 
     return (
-      <div className="Question">
-        <span className="Choice">{lastChoice.choice}</span>
-        <span className="Votes">
+      <li className="Choice">
+        <p className="ChoiceContent">{lastChoice.choice}</p>
+        <p className="Votes">
           {Strings.votes} {lastChoice.votes}
-        </span>
+        </p>
         <button className="Url" onClick={e => this.handleClick(p, e)}>
           {Strings.vote}
         </button>
-      </div>
+      </li>
     );
   }
 }

@@ -1,0 +1,32 @@
+/*...App?*/
+.Questions {
+    padding: 2rem;
+}
+
+/*...Questions?*/
+.Questions>ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 1rem;
+}
+
+/*Question*/
+.Questions>ul>li {
+    border: 1px solid #E2E2E2;
+    border-radius: .5rem;
+    list-style-type: none;
+    box-shadow: 10px 5px 5px #00000030;
+}
+
+.Questions>ul>li>p {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 1rem .75rem;
+    color: #666666;
+}
+
+.Questions>ul>li>a {
+
+    padding: .5rem 1rem;
+    margin: .5rem;
+}

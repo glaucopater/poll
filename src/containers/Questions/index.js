@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Question from '../../components/Question';
 import EmptyResults from '../../components/EmptyResults';
+import Loading from '../../components/Loading';
 import { fetchQuestions } from './actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -27,22 +28,27 @@ class Questions extends React.PureComponent {
   }
 
   render() {
-    const questions =
-      this.props.questions && this.props.questions.data
-        ? this.props.questions.data
-        : [];
+    const { questions } = this.props;
 
-    return (
-      <StyledQuestions>
-        {questions.length === 0 && <EmptyResults />}
-        {questions.length > 0 && <h1>{Strings.questions}</h1>}
-        <StyledQuestionsGrid>
-          {questions.map((q, index) => (
-            <Question key={index} {...q} />
-          ))}
-        </StyledQuestionsGrid>
-      </StyledQuestions>
-    );
+    if (!questions.data) {
+      return <Loading />;
+    } else {
+      const questionsData = questions.data ? questions.data : [];
+
+      if (questionsData.length === 0) {
+        return <EmptyResults />;
+      }
+      return (
+        <StyledQuestions>
+          {questionsData.length > 0 && <h1>{Strings.questions}</h1>}
+          <StyledQuestionsGrid>
+            {questionsData.map((q, index) => (
+              <Question key={index} {...q} />
+            ))}
+          </StyledQuestionsGrid>
+        </StyledQuestions>
+      );
+    }
   }
 }
 

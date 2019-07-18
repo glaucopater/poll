@@ -14,8 +14,13 @@ export const StyledQuestionsGrid = styled.ul`
     border: 1px solid #e2e2e2;
     border-radius: 0.5rem;
     list-style-type: none;
-    box-shadow: 0.5rem 0.25rem 0.25rem #00000030;
+    box-shadow: 0.125rem 0.125rem 0.125rem #00000030;
     padding: 0.5rem;
+  }
+
+  > li:hover {
+    box-shadow: 0.25rem 0.25rem 0.25rem #00000030;
+    transition: box-shadow 0.3s ease-in-out;
   }
 
   > li > p {

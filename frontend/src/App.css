@@ -10,7 +10,12 @@ div {
   flex-direction: column;
 }
 
-span, button {
+.Question {
+  flex-direction: row;
+  display: flex;
+}
+
+span {
   border: 1px solid green;
   padding: 6px;
   min-width: 10px;
@@ -19,7 +24,7 @@ span, button {
   box-shadow: 3px 3px 3px 3px #00000030;
 }
 
- button {
+button {
   border: 1px solid green;
   padding: 6px;
   min-width: 10px;
@@ -27,4 +32,3 @@ span, button {
   margin: 12px;
   box-shadow: 3px 3px 3px 3px #00000030;
 }
-

@@ -17,19 +17,3 @@ export function fetchQuestions() {
       });
   };
 }
-
-export function voteQuestion(choice) {
-  return dispatch => {
-    return axios
-      .post(choice.url, { crossDomain: true })
-      .then(resp => {
-        dispatch({
-          type: actionTypes.VOTE_LOADED,
-          data: resp.data,
-        });
-      })
-      .catch(error => {
-        console.error('error:', error);
-      });
-  };
-}

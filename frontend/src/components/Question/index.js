@@ -1,17 +1,13 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Choices from '../../containers/Choices';
-import Strings from '../../constants/strings';
 import Moment from 'react-moment';
 
 export default class Question extends PureComponent {
   static propTypes = {
-    index: PropTypes.number,
     question: PropTypes.string.isRequired,
     published_at: PropTypes.string.isRequired,
     url: PropTypes.string.isRequired,
     choices: PropTypes.array.isRequired,
-    voteQuestion: PropTypes.func.isRequired,
     data: PropTypes.object,
   };
 
@@ -24,28 +20,17 @@ export default class Question extends PureComponent {
   }
 
   render() {
-    const {
-      index,
-      question,
-      published_at,
-      url,
-      choices,
-      voteQuestion,
-      data,
-    } = this.props;
+    const { question, published_at, url } = this.props;
 
     return (
-      <Fragment key={index}>
-        <span className="Question">{question}</span>
-        <span className="Published_at">
-          {Strings.publishedAt}
+      <div className="Question">
+        <div className="Url">
+          <a href={url}>{question}</a>
+        </div>
+        <div className="Published_at">
           <Moment>{published_at}</Moment>
-        </span>
-        <span className="Url">
-          <a href={url}>{Strings.details}</a>
-        </span>
-        <Choices choices={choices} voteQuestion={voteQuestion} data={data} />
-      </Fragment>
+        </div>
+      </div>
     );
   }
 }

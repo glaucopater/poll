@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
+import { fetchQuestionsReducer } from '../containers/Questions/reducers';
 import {
-  fetchQuestionsReducer,
+  fetchQuestionDetailsReducer,
   voteQuestionReducer,
-} from '../containers/Questions/reducers';
+} from '../containers/QuestionDetails/reducers';
 
 const reducers = combineReducers({
   fetchQuestions: fetchQuestionsReducer,
+  fetchQuestionDetails: fetchQuestionDetailsReducer,
   voteQuestion: voteQuestionReducer,
 });
 

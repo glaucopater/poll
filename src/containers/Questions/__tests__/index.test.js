@@ -8,7 +8,7 @@ const mockStore = configureMockStore();
 const store = mockStore({});
 describe('<Questions/>', () => {
   const props = {
-    questions: [],
+    questions: { data: [] },
     voteQuestion: jest.fn(),
     fetchQuestions: jest.fn(),
   };

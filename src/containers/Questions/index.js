@@ -30,7 +30,7 @@ class Questions extends React.PureComponent {
   render() {
     const { questions } = this.props;
 
-    if (!questions.data) {
+    if (!questions || !questions.data) {
       return <Loading />;
     } else {
       const questionsData = questions.data ? questions.data : [];

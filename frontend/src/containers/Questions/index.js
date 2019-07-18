@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Question from '../../components/_Question';
+import Question from '../../components/Question';
 import EmptyResults from '../../components/EmptyResults';
 import { fetchQuestions, voteQuestion } from './actions';
 import { connect } from 'react-redux';

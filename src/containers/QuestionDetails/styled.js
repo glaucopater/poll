@@ -12,6 +12,12 @@ export const StyledQuestionDetails = styled.div`
   flex-direction: column;
 `;
 
+export const StyledThanks = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+`;
+
 export const StyledChoices = styled.ul`
   display: flex;
   flex-direction: column;

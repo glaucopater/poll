@@ -10,6 +10,7 @@ export default class Question extends PureComponent {
     url: PropTypes.string.isRequired,
     voteQuestion: PropTypes.func.isRequired,
     data: PropTypes.object,
+    hasVoted: PropTypes.bool,
   };
 
   constructor(props) {
@@ -23,21 +24,30 @@ export default class Question extends PureComponent {
     this.props.voteQuestion(p);
   }
   render() {
-    const { data } = this.props;
-    const p = this.props;
+    const props = this.props;
+    const { data, url } = props;
     const lastChoice =
-      data && data.data && data.data.url === p.url ? data.data : p;
+      data && data.data && data.data.url === url ? data.data : props;
+    const hasVoted = data && data.data && data.data.url;
+    const isUserVote = data && data.data && data.data.url === url;
+    const voteProps = { isUserVote, hasVoted };
 
     return (
       <li className="Choice">
         <p className="ChoiceContent">{lastChoice.choice}</p>
-        <StyledVoteContainer>
+        <StyledVoteContainer {...voteProps}>
           <p className="Votes">
             {Strings.votes} {lastChoice.votes}
           </p>
-          <button className="Url" onClick={e => this.handleClick(p, e)}>
-            {Strings.vote}
-          </button>
+          {!hasVoted && (
+            <button
+              className="Url"
+              onClick={e => this.handleClick(props, e)}
+              disabled={hasVoted}
+            >
+              {Strings.vote}
+            </button>
+          )}
         </StyledVoteContainer>
       </li>
     );

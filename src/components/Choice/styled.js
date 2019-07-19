@@ -6,11 +6,12 @@ export const StyledVoteContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-basis: 50%;
+  color: ${props => (props.isUserVote ? 'green' : 'black')};
 
   > button {
     padding: 0.5rem 1rem;
     margin: 0.5rem;
-    background-color: goldenrod;
+    background-color: forestgreen;
     text-decoration: none;
     color: white;
     border-radius: 0.25rem;

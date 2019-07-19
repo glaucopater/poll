@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import Choice from '../../components/Choice/';
 import EmtpyResults from '../../components/EmptyResults/';
 import Loading from '../../components/Loading/';
-import { StyledHeader, StyledQuestionDetails, StyledChoices } from './styled';
+import {
+  StyledHeader,
+  StyledQuestionDetails,
+  StyledChoices,
+  StyledThanks,
+} from './styled';
 import { fetchQuestionDetails, voteQuestion } from './actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -32,6 +37,7 @@ class QuestionDetails extends PureComponent {
 
   render() {
     const { voteQuestion, questionDetails, data } = this.props;
+    const hasVoted = data && data.data && data.data.url;
 
     if (!questionDetails.data) {
       return <Loading />;
@@ -57,6 +63,7 @@ class QuestionDetails extends PureComponent {
               />
             ))}
           </StyledChoices>
+          {hasVoted && <StyledThanks>{Strings.thanks}</StyledThanks>}
         </StyledQuestionDetails>
       );
     } else return <EmtpyResults />;

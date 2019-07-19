@@ -5,4 +5,5 @@ export default {
   publishedAt: 'Published',
   details: 'Details',
   back: 'Back',
+  thanks: 'Thanks for Your vote!',
 };

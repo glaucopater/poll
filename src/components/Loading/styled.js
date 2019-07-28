@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { DEFAULT_MARGIN } from '../../constants/';
 
 export const StyledLoading = styled.div`
-  margin: 2rem;
+  margin: ${DEFAULT_MARGIN};
   font-weight: 800;
 `;

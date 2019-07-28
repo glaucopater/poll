@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DEFAULT_MARGIN } from '../../constants/';
 
 export const StyledHeader = styled.div`
   display: flex;
@@ -26,7 +27,7 @@ export const StyledChoices = styled.ul`
   border-radius: 0.5rem;
   list-style-type: none;
   box-shadow: 0.5rem 0.25rem 0.25rem #00000030;
-  margin: 2rem;
+  margin: ${DEFAULT_MARGIN};
 
   > li {
     display: flex;

@@ -19,6 +19,7 @@ export const StyledVoteContainer = styled.div`
     display: inline-block;
     transition: all 0.3s;
     outline: none;
+    border: none;
   }
 
   > button:hover {

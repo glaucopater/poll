@@ -5,4 +5,5 @@ export const StyledHeader = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  padding-right: 1rem;
 `;

@@ -1,6 +1,9 @@
 import actionTypes from './actionTypes.js';
 import axios from 'axios';
-import { QUESTION_DETAILS_ENDPOINT } from '../../constants';
+import {
+  QUESTION_DETAILS_ENDPOINT,
+  QUESTION_VOTE_ENDPOINT,
+} from '../../constants';
 
 export function fetchQuestionDetails(questionId) {
   return dispatch => {
@@ -21,7 +24,7 @@ export function fetchQuestionDetails(questionId) {
 export function voteQuestion(choice) {
   return dispatch => {
     return axios
-      .post(choice.url, { crossDomain: true })
+      .post(`${QUESTION_VOTE_ENDPOINT}/${choice.url}`, { crossDomain: true })
       .then(resp => {
         dispatch({
           type: actionTypes.VOTE_LOADED,

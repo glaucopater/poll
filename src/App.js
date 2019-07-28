@@ -21,7 +21,7 @@ const App = () => {
             render={routeProps => <QuestionDetails {...routeProps} />}
           />
           <Route
-            path="/questions/new"
+            path="/new"
             exact
             render={routeProps => <CreateQuestion {...routeProps} />}
           />

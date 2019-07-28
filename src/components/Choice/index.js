@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Strings from '../../constants/strings';
+import strings from '../../constants/strings';
 import { StyledVoteContainer } from './styled';
 
 export default class Question extends PureComponent {
@@ -37,7 +37,7 @@ export default class Question extends PureComponent {
         <p className="ChoiceContent">{lastChoice.choice}</p>
         <StyledVoteContainer {...voteProps}>
           <p className="Votes">
-            {Strings.votes} {lastChoice.votes}
+            {strings.votes} {lastChoice.votes}
           </p>
           {!hasVoted && (
             <button
@@ -45,7 +45,7 @@ export default class Question extends PureComponent {
               onClick={e => this.handleClick(props, e)}
               disabled={hasVoted}
             >
-              {Strings.vote}
+              {strings.vote}
             </button>
           )}
         </StyledVoteContainer>

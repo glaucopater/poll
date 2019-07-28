@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import Strings from '../../constants/strings';
+import strings from '../../constants/strings';
 export default class Question extends PureComponent {
   static propTypes = {
     question: PropTypes.string.isRequired,
@@ -24,7 +24,7 @@ export default class Question extends PureComponent {
     return (
       <li className="Question">
         <p>{question}</p>
-        <a href={url}>{Strings.vote}</a>
+        <a href={url}>{strings.vote}</a>
       </li>
     );
   }

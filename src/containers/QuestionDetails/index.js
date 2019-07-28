@@ -2,17 +2,13 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import Choice from '../../components/Choice/';
 import EmtpyResults from '../../components/EmptyResults/';
+import Header from '../../components/Header/';
 import Loading from '../../components/Loading/';
-import {
-  StyledHeader,
-  StyledQuestionDetails,
-  StyledChoices,
-  StyledThanks,
-} from './styled';
+import { StyledQuestionDetails, StyledChoices, StyledThanks } from './styled';
 import { fetchQuestionDetails, voteQuestion } from './actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Strings from '../../constants/strings';
+import strings from '../../constants/strings';
 
 class QuestionDetails extends PureComponent {
   static propTypes = {
@@ -47,12 +43,11 @@ class QuestionDetails extends PureComponent {
       const { choices, question } = questionDetails.data;
       return (
         <StyledQuestionDetails>
-          <StyledHeader>
-            <h1>{question}</h1>
-            <span>
-              <a href="/">{Strings.back}</a>
-            </span>
-          </StyledHeader>
+          <Header
+            title={question}
+            linkObject={{ title: strings.back, url: '/' }}
+          />
+
           <StyledChoices className="Choices">
             {Object.values(choices).map((p, index) => (
               <Choice
@@ -63,7 +58,7 @@ class QuestionDetails extends PureComponent {
               />
             ))}
           </StyledChoices>
-          {hasVoted && <StyledThanks>{Strings.thanks}</StyledThanks>}
+          {hasVoted && <StyledThanks>{strings.thanks}</StyledThanks>}
         </StyledQuestionDetails>
       );
     } else return <EmtpyResults />;

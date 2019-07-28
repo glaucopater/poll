@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { postQuestion } from './actions';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { StyledCreateQuestion } from './styled';
+import Header from '../../components/Header';
+import strings from '../../constants/strings';
 
 class CreateQuestion extends React.PureComponent {
   static propTypes = {
@@ -36,23 +39,25 @@ class CreateQuestion extends React.PureComponent {
   };
 
   render() {
-    console.log(this.props);
-
     return (
-      <div>
-        Create new question...
-        <div>
-          <textarea
-            value={this.state.question}
-            onChange={this.handleQuestionChange}
-          />
-          <textarea
-            value={this.state.choices}
-            onChange={this.handleChoicesChange}
-          />
-          <button onClick={this.handleCreate}>Create</button>
-        </div>
-      </div>
+      <StyledCreateQuestion>
+        <Header
+          title={strings.questions}
+          linkObject={{ title: strings.back, url: '/' }}
+        />
+
+        <textarea
+          value={this.state.question}
+          onChange={this.handleQuestionChange}
+          placeholder={'question'}
+        />
+        <textarea
+          value={this.state.choices}
+          onChange={this.handleChoicesChange}
+          placeholder={'choices'}
+        />
+        <button onClick={this.handleCreate}>Create</button>
+      </StyledCreateQuestion>
     );
   }
 }

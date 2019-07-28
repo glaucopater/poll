@@ -6,4 +6,5 @@ export default {
   details: 'Details',
   back: 'Back',
   thanks: 'Thanks for Your vote!',
+  createNewQuestion: 'Create new question',
 };

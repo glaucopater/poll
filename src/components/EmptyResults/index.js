@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyledEmptyResults } from './styled';
-const EmptyResults = () => {
-  return (
-    <StyledEmptyResults className="EmptyResults">
-      {'No results'}
-    </StyledEmptyResults>
-  );
-};
+import strings from '../../constants/strings';
+
+const EmptyResults = () => (
+  <StyledEmptyResults>{strings.noResults}</StyledEmptyResults>
+);
+
 export default EmptyResults;

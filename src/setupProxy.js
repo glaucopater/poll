@@ -1,5 +1,5 @@
 const proxy = require('http-proxy-middleware');
-const API_URL = 'https://polls.apiblueprint.org/';
+const API_URL = 'https://polls.apiblueprint.org';
 
 module.exports = function(app) {
   app.use(

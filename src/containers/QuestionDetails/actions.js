@@ -24,7 +24,7 @@ export function fetchQuestionDetails(questionId) {
 export function voteQuestion(choice) {
   return dispatch => {
     return axios
-      .post(`${QUESTION_VOTE_ENDPOINT}/${choice.url}`, { crossDomain: true })
+      .post(`${QUESTION_VOTE_ENDPOINT}${choice.url}`, { crossDomain: true })
       .then(resp => {
         dispatch({
           type: actionTypes.VOTE_LOADED,

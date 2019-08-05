@@ -7,4 +7,5 @@ export default {
   back: 'Back',
   thanks: 'Thanks for Your vote!',
   createNewQuestion: 'Create new question',
+  noResults: 'No Results',
 };
